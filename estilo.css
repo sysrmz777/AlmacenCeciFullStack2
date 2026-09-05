@@ -1,0 +1,39 @@
+body {
+    background-color: aquamarine;
+    font-family: Helvetica, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    font-family: "Fjalla One", sans-serif;
+    background-color: rgb(179, 236, 179);
+    border: solid 2px black;
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+    color: black; 
+}
+
+h2 {
+    color: gray;
+}
+.tarjeta_producto {
+    background-color: white;
+    border: solid 1px black;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+}
+
+.tarjeta_producto img {
+    width: 150px;
+}
+
+#contenedor_formulario {
+    background-color: gray;
+    padding: 20px;
+    width: 300px;
+    border: solid 1px gray;
+}
