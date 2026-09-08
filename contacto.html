@@ -20,21 +20,29 @@
     <main class="contenido-principal">
         <div class="contenedor-formulario">
             <h2>Formulario de Contacto</h2>
-            <form id="formularioContacto" onsubmit="return enviarFormulario(event)">
+            <form id="formularioContacto">
                 <div class="campo">
                     <label>Nombre (Max 100):</label>
                     <input type="text" id="nombre" maxlength="100">
                 </div>
+
+                <div class="campo">
+                    <label>RUT (ej: 12345678-K):</label>
+                    <input type="text" id="rut" placeholder="12345678-K">
+                </div>
+
                 <div class="campo">
                     <label>Correo Electrónico:</label>
-                    <input type="email" id="correo" maxlength="100" placeholder="@gmail.com o @duoc.cl">
+                    <input type="text" id="correo" maxlength="100" placeholder="@gmail.com o @duoc.cl">
                 </div>
+
                 <div class="campo">
                     <label>Mensaje (Max 500):</label>
                     <textarea id="mensaje" rows="4" maxlength="500"></textarea>
                 </div>
+
                 <div class="botones">
-                    <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+                    <button type="button" class="boton-enviar" onclick="enviarFormulario()">Enviar Mensaje</button>
                     <button type="reset" class="boton-limpiar">Limpiar</button>
                 </div>
             </form>
@@ -42,20 +50,62 @@
     </main>
 
     <script>
-        function enviarFormulario(event) {
-            event.preventDefault();
-            var nombre = document.getElementById("nombre").value.trim();
-            var correo = document.getElementById("correo").value.trim().toLowerCase();
-            var mensaje = document.getElementById("mensaje").value.trim();
+        function enviarFormulario() {
+            var nombreInput = document.getElementById("nombre").value.trim();
+            var rutInput = document.getElementById("rut").value.trim();
+            var correoInput = document.getElementById("correo").value.trim().toLowerCase();
 
-            var correoValido = correo.endsWith("@duoc.cl") || correo.endsWith("@profesor.duoc.cl") || correo.endsWith("@gmail.com");
+            //  Validar Nombre
+            if (nombreInput === "") {
+                alert("Error: Debes ingresar tu nombre.");
+                return;
+            }
 
-            if (nombre === "") { alert("Ingresa tu nombre."); return; }
-            if (!correoValido) { alert("Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com"); return; }
-            if (mensaje === "") { alert("Escribe un mensaje."); return; }
+            // Validar RUT
+            if (!validarRut(rutInput)) {
+                alert("Error: El RUT ingresado NO es válido. Intenta con un RUT real (ej: 19011022-K).");
+                return;
+            }
 
-            alert("¡Gracias " + nombre + "! Mensaje enviado.");
+            // Validar Correo
+            var correoValido = correoInput.endsWith("@duoc.cl") || correoInput.endsWith("@profesor.duoc.cl") || correoInput.endsWith("@gmail.com");
+            if (!correoValido) {
+                alert("Error: El correo debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com");
+                return;
+            }
+
+            
+            alert("¡Formulario y RUT validados correctamente!");
             document.getElementById("formularioContacto").reset();
+        }
+
+        
+        function validarRut(rut) {
+            if (!rut) return false;
+            
+            // Limpia 
+            var valor = rut.replace(/\./g, '').replace('-', '').toUpperCase();
+            
+            if (valor.length < 8 || valor.length > 9) return false;
+
+            var cuerpo = valor.slice(0, -1);
+            var dv = valor.slice(-1);
+
+            // Valida que sean solo nuemros
+            if (!/^[0-9]+$/.test(cuerpo)) return false;
+
+            var suma = 0;
+            var multiplo = 2;
+
+            for (var i = cuerpo.length - 1; i >= 0; i--) {
+                suma += parseInt(cuerpo.charAt(i)) * multiplo;
+                multiplo = (multiplo === 7) ? 2 : multiplo + 1;
+            }
+
+            var resto = 11 - (suma % 11);
+            var dvEsperado = (resto === 11) ? '0' : (resto === 10) ? 'K' : resto.toString();
+
+            return dv === dvEsperado;
         }
     </script>
 </body>

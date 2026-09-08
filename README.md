@@ -18,7 +18,7 @@ El sitio cuenta con las siguientes vistas interconectadas:
 2. **`productos.html` (Catálogo):** Listado de productos con imágenes, precios y opción de añadir al carrito.
 3. **`carrito.html` (Carrito de Compras):** Detalle de productos seleccionados persistidos mediante `LocalStorage`, cálculo de total y simulación de compra.
 4. **`nosotros.html` (Nosotros):** Historia del almacén e información del equipo de desarrollo.
-5. **`blogs.html` (Noticias y Curiosidades):** Artículos sobre la historia y productos tradicionales de la tienda.
+
 6. **`contacto.html` (Contacto):** Formulario con validación en tiempo real (nombre, mensaje y filtro estricto de dominios `@duoc.cl`, `@profesor.duoc.cl`, `@gmail.com`).
 7. **`login.html` (Iniciar Sesión):** Formulario de acceso con validación de credenciales.
 8. **`registro.html` (Registro de Usuario):** Registro con validación de RUN chileno, contraseñas coincidentes y selección dinámica de Regiones y Comunas.

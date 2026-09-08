@@ -70,22 +70,7 @@
     </main>
 
     <script>
-        function validarAlertaStock() {
-            var stock = parseInt(document.getElementById("stock").value) || 0;
-            var critico = parseInt(document.getElementById("stockCritico").value) || 0;
-            if(stock <= critico && stock !== 0) {
-                document.getElementById("alertaStock").style.display = "block";
-            } else {
-                document.getElementById("alertaStock").style.display = "none";
-            }
-        }
-
-        function guardarProducto(e) {
-            e.preventDefault();
-            alert("Producto Guardado en la base de datos (Simulado).");
-            e.target.reset();
-            document.getElementById("alertaStock").style.display = "none";
-        }
+       
     </script>
 </body>
 </html>

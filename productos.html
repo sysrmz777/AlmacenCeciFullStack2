@@ -15,7 +15,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
+                
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="admin_productos.html" style="color:#ffeb3b;">Admin</a></li>
             </ul>
@@ -62,15 +62,12 @@
             actualizarContador();
         }
 
-        // 3. LocalStorage 
+        
         function anadirAlCarrito(nombre, precio) {
-            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
-            carrito.push({ nombre: nombre, precio: precio });
-            localStorage.setItem("carrito_almacen", JSON.stringify(carrito));
-            
-            actualizarContador();
-            alert("¡Agregaste " + nombre + " al carrito!");
+    
+    alert("Producto '" + nombre + "' seleccionado (Vista previa de carrito).");
         }
+        
 
         function actualizarContador() {
             var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
