@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Productos</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header class="cabecera" style="background-color: #333;">
+        <div class="logo"><h1>Panel Administrador</h1></div>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="index.html">← Volver a la Tienda</a></li>
+                <li><a href="admin_productos.html">Productos</a></li>
+                <li><a href="admin_usuarios.html">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <div class="contenedor-formulario">
+            <h2>Nuevo Producto</h2>
+            <form onsubmit="return guardarProducto(event)">
+                
+                <div class="campo">
+                    <label>Código Producto (Mín 3 chars):</label>
+                    <input type="text" id="codigo" minlength="3" required>
+                </div>
+
+                <div class="campo">
+                    <label>Nombre (Max 100):</label>
+                    <input type="text" id="nombreProd" maxlength="100" required>
+                </div>
+
+                <div class="campo">
+                    <label>Descripción (Max 500 - Opcional):</label>
+                    <textarea id="desc" maxlength="500"></textarea>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo">
+                        <label>Precio (Min 0):</label>
+                        <input type="number" id="precio" min="0" step="0.1" required>
+                    </div>
+                    <div class="campo">
+                        <label>Categoría:</label>
+                        <select id="cat" required>
+                            <option value="">Seleccione</option>
+                            <option value="Abarrotes">Abarrotes</option>
+                            <option value="Bebidas">Bebidas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo">
+                        <label>Stock (Números Enteros):</label>
+                        <input type="number" id="stock" min="0" step="1" required>
+                    </div>
+                    <div class="campo">
+                        <label>Stock Crítico:</label>
+                        <input type="number" id="stockCritico" min="0" step="1" oninput="validarAlertaStock()">
+                        <span id="alertaStock" style="color:orange; font-size:12px; display:none;">¡Stock Crítico Alcanzado!</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="boton-enviar" style="background-color: #333;">Guardar Producto</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function validarAlertaStock() {
+            var stock = parseInt(document.getElementById("stock").value) || 0;
+            var critico = parseInt(document.getElementById("stockCritico").value) || 0;
+            if(stock <= critico && stock !== 0) {
+                document.getElementById("alertaStock").style.display = "block";
+            } else {
+                document.getElementById("alertaStock").style.display = "none";
+            }
+        }
+
+        function guardarProducto(e) {
+            e.preventDefault();
+            alert("Producto Guardado en la base de datos (Simulado).");
+            e.target.reset();
+            document.getElementById("alertaStock").style.display = "none";
+        }
+    </script>
+</body>
+</html>

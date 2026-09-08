@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Usuarios</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header class="cabecera" style="background-color: #333;">
+        <div class="logo"><h1>Panel Administrador</h1></div>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="index.html">← Volver a la Tienda</a></li>
+                <li><a href="admin_productos.html">Productos</a></li>
+                <li><a href="admin_usuarios.html">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <div class="contenedor-formulario">
+            <h2>Asignación de Usuarios y Roles</h2>
+            <form onsubmit="return guardarUsuario(event)">
+                
+                <div class="campo">
+                    <label>RUN:</label>
+                    <input type="text" id="runUsu" maxlength="9" required placeholder="123456789">
+                </div>
+
+                <div class="campo">
+                    <label>Correo Electrónico:</label>
+                    <input type="email" id="correoUsu" required>
+                </div>
+
+                <div class="campo">
+                    <label>Tipo de Usuario (Rol):</label>
+                    <select id="rol" required>
+                        <option value="">Seleccione un Rol</option>
+                        <option value="Administrador">Administrador (Acceso Total)</option>
+                        <option value="Vendedor">Vendedor (Visualiza Productos y Órdenes)</option>
+                        <option value="Cliente">Cliente (Solo Tienda)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="boton-enviar" style="background-color: #333;">Registrar Usuario</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function guardarUsuario(e) {
+            e.preventDefault();
+            var correo = document.getElementById("correoUsu").value.toLowerCase();
+            if (!(correo.endsWith("@duoc.cl") || correo.endsWith("@profesor.duoc.cl") || correo.endsWith("@gmail.com"))) {
+                alert("Error: Solo dominios @duoc.cl, @profesor.duoc.cl, @gmail.com");
+                return;
+            }
+            alert("Usuario asignado con éxito.");
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
