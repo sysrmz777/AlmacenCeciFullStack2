@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Almacén Cecilia</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="cargarProductos()">
+
+    <header class="cabecera">
+        <div class="logo"><h1>Almacén Cecilia</h1></div>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="admin_productos.html" style="color:#ffeb3b;">Admin</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-usuario">
+            <a href="login.html">Iniciar Sesión</a>
+            <a href="carrito.html" id="contador-carrito">Carrito (0)</a>
+        </div>
+    </header>
+
+    <main class="contenido-principal">
+        <h2 class="titulo-seccion">Nuestros Productos</h2>
+        
+        <div class="grilla-productos" id="contenedor-productos"></div>
+    </main>
+
+    <footer class="pie-pagina">
+        <div class="derechos"><p>&copy; 2026 Almacén Cecilia.</p></div>
+    </footer>
+
+    <script>
+        // 1. Arreglo de objetos 
+        var catalogo = [
+            { id: 1, nombre: "Criollitas", precio: 1300, imagen: "Imagen/Criollitas.jpg" },
+            { id: 2, nombre: "Fruna", precio: 800, imagen: "Imagen/fruna.png" },
+            { id: 3, nombre: "CocaCola", precio: 1500, imagen: "Imagen/Coca.jpg" }
+        ];
+
+        // 2. Mostrar productos en el HTML
+        function cargarProductos() {
+            var contenedor = document.getElementById("contenedor-productos");
+            contenedor.innerHTML = ""; 
+            
+            catalogo.forEach(function(producto) {
+                contenedor.innerHTML += `
+                    <article class="tarjeta_producto">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        <h3>${producto.nombre}</h3>
+                        <p class="precio">$${producto.precio}</p>
+                        <button type="button" onclick="anadirAlCarrito('${producto.nombre}', ${producto.precio})">Añadir al carrito</button>
+                    </article>
+                `;
+            });
+            actualizarContador();
+        }
+
+        // 3. LocalStorage 
+        function anadirAlCarrito(nombre, precio) {
+            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
+            carrito.push({ nombre: nombre, precio: precio });
+            localStorage.setItem("carrito_almacen", JSON.stringify(carrito));
+            
+            actualizarContador();
+            alert("¡Agregaste " + nombre + " al carrito!");
+        }
+
+        function actualizarContador() {
+            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
+            document.getElementById("contador-carrito").innerHTML = "Carrito (" + carrito.length + ")";
+        }
+    </script>
+</body>
+</html>
