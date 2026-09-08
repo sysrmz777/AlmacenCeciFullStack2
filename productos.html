@@ -64,14 +64,11 @@
 
         
         function anadirAlCarrito(nombre, precio) {
-    
-    alert("Producto '" + nombre + "' seleccionado (Vista previa de carrito).");
+            alert("Producto '" + nombre + "' seleccionado (Vista previa de carrito).");
         }
         
-
         function actualizarContador() {
-            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
-            document.getElementById("contador-carrito").innerHTML = "Carrito (" + carrito.length + ")";
+            document.getElementById("contador-carrito").innerHTML = "Carrito (0)";
         }
     </script>
 </body>
