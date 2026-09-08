@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Almacén Cecilia</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="cargarCarrito()">
+
+    <header class="cabecera">
+        <div class="logo"><h1>Almacén Cecilia</h1></div>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-usuario">
+            <a href="login.html">Iniciar Sesión</a>
+            <a href="carrito.html" id="contador-carrito">Carrito (0)</a>
+        </div>
+    </header>
+
+    <main class="contenido-principal">
+        <div class="contenedor-formulario" style="max-width: 600px;">
+            <h2>Mi Carrito de Compras</h2>
+            
+            <ul id="lista-carrito" style="list-style: none; padding: 0; margin: 20px 0;"></ul>
+            <h3 id="total-carrito" style="text-align: right; color: #2e7d32; margin-bottom: 20px;">Total: $0</h3>
+
+            <div class="botones">
+                <button type="button" class="boton-enviar" onclick="pagar()">Finalizar Compra</button>
+                <button type="button" class="boton-limpiar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="productos.html" style="color: #2e7d32; text-decoration: none; font-weight: bold;">← Volver al catálogo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function cargarCarrito() {
+            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
+            var lista = document.getElementById("lista-carrito");
+            var totalTexto = document.getElementById("total-carrito");
+            var totalPrecio = 0;
+
+            document.getElementById("contador-carrito").innerHTML = "Carrito (" + carrito.length + ")";
+            lista.innerHTML = "";
+
+            if (carrito.length === 0) {
+                lista.innerHTML = "<li style='text-align:center; padding:20px;'>Tu carrito está vacío.</li>";
+                totalTexto.innerHTML = "Total: $0";
+                return;
+            }
+
+            carrito.forEach(function(prod, index) {
+                totalPrecio += prod.precio;
+                lista.innerHTML += `
+                    <li style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee;">
+                        <span>${prod.nombre}</span>
+                        <strong>$${prod.precio}</strong>
+                    </li>
+                `;
+            });
+
+            totalTexto.innerHTML = "Total: $" + totalPrecio;
+        }
+
+        function vaciarCarrito() {
+            localStorage.removeItem("carrito_almacen");
+            cargarCarrito();
+        }
+
+        function pagar() {
+            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
+            if (carrito.length === 0) {
+                alert("Agrega productos primero.");
+                return;
+            }
+            alert("¡Compra realizada con éxito por el total de la pantalla!");
+            vaciarCarrito();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
