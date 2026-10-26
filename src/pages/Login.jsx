@@ -52,7 +52,7 @@ export default function Login() {
                 <form onSubmit={enviar}>
                     <CampoFormulario
                         id="correo" etiqueta="Correo Electrónico:" valor={correo} onCambio={setCorreo}
-                        maxLength={100} placeholder="alvaro.ramirez@duoc.cl o juan.perez@gmail.com"
+                        maxLength={100} placeholder="alvaro.ramirez@duoc.cl o benja.mora@gmail.com"
                         mensaje={correo !== "" || intentado ? resCorreo.mensaje : ""} esValido={resCorreo.valido}
                     />
                     <CampoFormulario

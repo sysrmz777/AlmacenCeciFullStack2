@@ -17,9 +17,9 @@ export default function Compra() {
     const [form, setForm] = useState({
         nombre: sesion ? sesion.nombre : "",
         correo: sesion ? sesion.correo : "",
-        direccion: sesion && sesion.direccion ? sesion.direccion : "",
-        regionId: sesion && sesion.region ? String(sesion.region) : "",
-        comunaId: sesion && sesion.comuna ? String(sesion.comuna) : ""
+        direccion: "",
+        regionId: "",
+        comunaId: ""
     });
     const [intentado, setIntentado] = useState(false);
 
