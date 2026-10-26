@@ -1,0 +1,80 @@
+body {
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.bg-cecilia {
+    background-color: #2e7d32;
+}
+
+.btn-cecilia {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+    color: white;
+}
+
+.btn-cecilia:hover {
+    background-color: #1b5e20;
+    border-color: #1b5e20;
+    color: white;
+}
+
+.texto-cecilia {
+    color: #2e7d32;
+}
+
+.card-producto img {
+    height: 200px;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.pie a {
+    color: white;
+    text-decoration: none;
+}
+
+.card-producto {
+    transition: box-shadow 0.3s ease;
+}
+
+.card-producto:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.precio-descuento {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.link-none {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-none:hover {
+    color: #2e7d32;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "|";
+    color: #6c757d;
+    padding: 0 8px;
+}
+
+.breadcrumb-item + .breadcrumb-item:last-child::before {
+    content: ">";
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.barra-categoria {
+    height: 1.25rem;
+    background-color: #2e7d32;
+    border-radius: 0.25rem;
+}
