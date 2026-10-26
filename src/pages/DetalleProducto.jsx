@@ -60,7 +60,7 @@ export default function DetalleProducto() {
                     </p>
                     <div className="d-flex align-items-center gap-2 mb-3">
                         <button type="button" className="btn btn-outline-success btn-sm" aria-label="Disminuir cantidad" onClick={() => cambiarCantidad(-1)} disabled={cantidad <= 1}>-</button>
-                        <span data-testid="cantidad" className="px-2">{cantidad}</span>
+                        <span className="px-2">{cantidad}</span>
                         <button type="button" className="btn btn-outline-success btn-sm" aria-label="Aumentar cantidad" onClick={() => cambiarCantidad(1)} disabled={cantidad >= maximo}>+</button>
                     </div>
                     <button type="button" className="btn btn-cecilia" disabled={estado === "agotado"} onClick={manejarAgregar}>Añadir al carrito</button>
