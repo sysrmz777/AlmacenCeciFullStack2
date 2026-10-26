@@ -6,11 +6,11 @@ import { useCarrito } from "../context/CarritoContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
 import { formatearPrecio } from "../utils/productos.js";
 
-// Carrito
 export default function Carrito() {
     const { carrito, total, cambiarCantidad, eliminar, vaciar } = useCarrito();
     const { mostrar } = useToast();
     const navegar = useNavigate();
+    // accion pendiente de confirmación: { tipo: "eliminar" | "vaciar", id? } o null
     const [pendiente, setPendiente] = useState(null);
 
     function confirmar() {
