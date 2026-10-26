@@ -15,7 +15,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
+                
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
@@ -43,49 +43,34 @@
     </main>
 
     <script>
-        function cargarCarrito() {
-            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
-            var lista = document.getElementById("lista-carrito");
-            var totalTexto = document.getElementById("total-carrito");
-            var totalPrecio = 0;
+        
+    function cargarCarrito() {
+        // Muestra productos maquetados de ejemplo sin usar localStorage
+        var lista = document.getElementById("lista-carrito");
+        var totalTexto = document.getElementById("total-carrito");
 
-            document.getElementById("contador-carrito").innerHTML = "Carrito (" + carrito.length + ")";
-            lista.innerHTML = "";
+        document.getElementById("contador-carrito").innerHTML = "Carrito (2)";
+        lista.innerHTML = `
+            <li style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee;">
+                <span>Criollitas</span>
+                <strong>$1300</strong>
+            </li>
+            <li style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee;">
+                <span>CocaCola</span>
+                <strong>$1500</strong>
+            </li>
+        `;
+        totalTexto.innerHTML = "Total: $2800";
+    }
 
-            if (carrito.length === 0) {
-                lista.innerHTML = "<li style='text-align:center; padding:20px;'>Tu carrito está vacío.</li>";
-                totalTexto.innerHTML = "Total: $0";
-                return;
-            }
+    function vaciarCarrito() {
+        alert("Función de vaciar carrito (Solo Vista)");
+    }
 
-            carrito.forEach(function(prod, index) {
-                totalPrecio += prod.precio;
-                lista.innerHTML += `
-                    <li style="display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee;">
-                        <span>${prod.nombre}</span>
-                        <strong>$${prod.precio}</strong>
-                    </li>
-                `;
-            });
-
-            totalTexto.innerHTML = "Total: $" + totalPrecio;
-        }
-
-        function vaciarCarrito() {
-            localStorage.removeItem("carrito_almacen");
-            cargarCarrito();
-        }
-
-        function pagar() {
-            var carrito = JSON.parse(localStorage.getItem("carrito_almacen")) || [];
-            if (carrito.length === 0) {
-                alert("Agrega productos primero.");
-                return;
-            }
-            alert("¡Compra realizada con éxito por el total de la pantalla!");
-            vaciarCarrito();
-            window.location.href = "index.html";
-        }
-    </script>
+    function pagar() {
+        alert("La pasarela de pago es solo demostrativa.");
+    }
+</script>
+    
 </body>
 </html>
