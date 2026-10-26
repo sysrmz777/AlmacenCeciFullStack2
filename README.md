@@ -1,37 +1,31 @@
-# Almacén Cecilia - Tienda Online
-**Asignatura:** Desarrollo Full Stack II (DSY1104)  
-**Institución:** Duoc UC  
-**Evaluación:** Parcial N° 1 - Construyendo las bases para mi aplicación web  
+# Almacén Cecilia - Tienda Online (React)
 
----
+Asignatura: Desarrollo Full Stack II (DSY1104), Duoc UC. Evaluación Parcial N° 2.  
+Integrantes: Alvaro Ramirez y Fernando Reyes.
 
-##  Descripción del Proyecto
-Sitio web frontend para el emprendimiento de barrio **"Almacén Cecilia"**, orientado a la visualización de productos, carrito de compras y atención al cliente.
+## Tecnologías
+- React 19 con Vite
+- React Router (navegación entre páginas)
+- Bootstrap 5.3.3 local (diseño responsivo)
+- Jasmine 5.1 + Karma 6.4 + Istanbul Coverage (pruebas unitarias y cobertura sobre `src/`)
 
-El proyecto está construido bajo los estándares modernos de desarrollo web, con diseño responsivo adaptable a dispositivos móviles y equipos de escritorio.
+## Cómo ejecutarlo
+Requiere Node.js. Dentro de esta carpeta:
 
----
+```bash
+npm install
+npm run dev
+```
 
-##  Estructura del Sitio Web
-El sitio cuenta con las siguientes vistas interconectadas:
-1. **`index.html` (Home):** Portada principal con banner de bienvenida, video publicitario embebido y resumen de servicios.
-2. **`productos.html` (Catálogo):** Listado de productos con imágenes, precios y opción de añadir al carrito de forma demostrativa.
-3. **`carrito.html` (Carrito de Compras):** Detalle simulado de productos, cálculo de total y simulación de compra.
-4. **`nosotros.html` (Nosotros):** Historia del almacén e información del equipo de desarrollo.
-6. **`contacto.html` (Contacto):** Formulario con validación en tiempo real (nombre, mensaje y filtro estricto de dominios `@duoc.cl`, `@profesor.duoc.cl`, `@gmail.com`).
-7. **`login.html` (Iniciar Sesión):** Formulario de acceso con validación de credenciales.
-8. **`registro.html` (Registro de Usuario):** Registro con validación de RUN chileno, contraseñas coincidentes y selección dinámica de Regiones y Comunas.
+Luego abrir `http://localhost:5173`.
 
----
+## Cómo ejecutar las Pruebas Unitarias y el Reporte de Cobertura
+Para ejecutar las 10 pruebas unitarias con **Karma + Jasmine** en `ChromeHeadless` y generar el reporte de cobertura en la carpeta `coverage/`:
 
-##  Tecnologías Utilizadas
-* **HTML5:** Estructura semántica (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-* **CSS3:** Hoja de estilos externa (`estilo.css`), maquetación con Flexbox y diseño adaptable con Media Queries (`@media`).
-* **JavaScript (Vanilla):** Validaciones de formularios y manejo del DOM.
+```bash
+npm test
+```
 
----
-
-##  Equipo de Desarrollo
-* **Integrantes:** Equipo Almacén Cecilia
-* **Sección:** DSY1104
-* **Docente:** Escuela de Informática y Telecomunicaciones - Duoc UC
+- El resumen de cobertura se muestra en la terminal (`95.45% Lines`, `91.57% Statements`).
+- El reporte interactivo HTML queda generado en `coverage/html/index.html`.
+- El informe detallado de las pruebas se encuentra en `INFORME_COBERTURA_TESTING.md`.
