@@ -7,15 +7,7 @@ const ProductosContext = createContext(null);
 function leerProductos() {
     try {
         const guardados = JSON.parse(localStorage.getItem("productos"));
-        if (!Array.isArray(guardados) || guardados.length === 0) return catalogoInicial;
-        const porId = new Map(catalogoInicial.map((p) => [p.id, p]));
-        return guardados.map((p) => {
-            const base = porId.get(p.id);
-            if (base && (!p.imagen || p.imagen === "/Imagen/sin-imagen.svg" || p.imagen.endsWith(".jng") || p.imagen.endsWith(".jnpng") || p.imagen === "/Imagen/fideos.jpg" || p.imagen === "/Imagen/agua.png")) {
-                return { ...p, imagen: base.imagen };
-            }
-            return p;
-        });
+        return Array.isArray(guardados) && guardados.length > 0 ? guardados : catalogoInicial;
     } catch {
         return catalogoInicial;
     }

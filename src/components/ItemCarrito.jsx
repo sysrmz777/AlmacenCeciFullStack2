@@ -6,7 +6,7 @@ export default function ItemCarrito({ item, onCambiar, onEliminar }) {
             <span>{item.nombre} ({formatearPrecio(item.precio)})</span>
             <span className="d-flex align-items-center gap-2">
                 <button type="button" className="btn btn-outline-success btn-sm" aria-label={"Quitar una unidad de " + item.nombre} onClick={() => onCambiar(item.id, -1)} disabled={item.cantidad <= 1}>-</button>
-                <span>{item.cantidad}</span>
+                <span data-testid="cantidad">{item.cantidad}</span>
                 <button type="button" className="btn btn-outline-success btn-sm" aria-label={"Agregar una unidad de " + item.nombre} onClick={() => onCambiar(item.id, 1)}>+</button>
             </span>
             <strong>{formatearPrecio(item.precio * item.cantidad)}</strong>

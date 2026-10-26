@@ -4,7 +4,7 @@ export const tiposUsuario = { 1: "Administrador", 2: "Vendedor", 3: "Cliente" };
 export const usuarios = [
     { id: 10001, run: "19011029K", nombre: "Alvaro Ramirez", correo: "alvaro.ramirez@duoc.cl", password: "admin", telefono: "+56 9 9111 2222", tipo: 1 },
     { id: 10002, run: "111111111", nombre: "Fernando Reyes", correo: "fernando.reyes@duoc.cl", password: "admin", telefono: "+56 9 8765 4321", tipo: 1 },
-    { id: 10003, run: "190110222", nombre: "Benjamín Mora", correo: "benja.mora@gmail.com", password: "1234", telefono: "+56 9 7777 8888", tipo: 1 },
+    { id: 10003, run: "190110222", nombre: "Juan Pérez", correo: "juan.perez@gmail.com", password: "1234", telefono: "+56 9 7777 8888", tipo: 3 },
     { id: 10004, run: "111111111", nombre: "Carlos Rodríguez", correo: "carlos.rodriguez@duoc.cl", password: "1234", telefono: "+56 9 8765 4321", tipo: 2 },
     { id: 10005, run: "19011029K", nombre: "Laura Fernández", correo: "laura.fernandez@gmail.com", password: "1234", telefono: "+56 9 5555 6666", tipo: 3 },
     { id: 10006, run: "111111111", nombre: "Valentina Guajardo", correo: "vale.guajardo@duoc.cl", password: "1234", telefono: "+56 9 6543 2109", tipo: 3 },
