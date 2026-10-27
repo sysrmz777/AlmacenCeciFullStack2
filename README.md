@@ -37,6 +37,7 @@ El proyecto fue migrado desde las páginas HTML de la entrega anterior a vistas 
 Dentro de la carpeta del proyecto, abrir una terminal y ejecutar:
 
 ```bash
+rm -rf node_modules
 npm install
 npm run dev
 ```
@@ -46,6 +47,6 @@ Luego abrir en el navegador la dirección `http://localhost:5173`.
 ---
 
 ## Equipo de Desarrollo
-* **Integrantes:** Alvaro Ramirez y Fernando Reyes
+* **Integrantes:** Alvaro Ramirez, Fernando Reyes y Javier Hidalgo
 * **Asignatura:** Desarrollo Full Stack II (DSY1104)
 * **Institución:** Escuela de Informática y Telecomunicaciones - Duoc UC
