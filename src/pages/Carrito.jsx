@@ -10,7 +10,6 @@ export default function Carrito() {
     const { carrito, total, cambiarCantidad, eliminar, vaciar } = useCarrito();
     const { mostrar } = useToast();
     const navegar = useNavigate();
-    // accion pendiente de confirmación: { tipo: "eliminar" | "vaciar", id? } o null
     const [pendiente, setPendiente] = useState(null);
 
     function confirmar() {
