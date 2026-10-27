@@ -20,6 +20,9 @@ import AdminProductos from "./pages/admin/AdminProductos.jsx";
 import AdminProductoForm from "./pages/admin/AdminProductoForm.jsx";
 import AdminCategorias from "./pages/admin/AdminCategorias.jsx";
 import AdminUsuarios from "./pages/admin/AdminUsuarios.jsx";
+import AdminOrdenes from "./pages/admin/AdminOrdenes.jsx";
+import AdminReportes from "./pages/admin/AdminReportes.jsx";
+import AdminPerfil from "./pages/admin/AdminPerfil.jsx";
 
 export default function App() {
     return (
@@ -42,11 +45,14 @@ export default function App() {
             </Route>
             <Route element={<LayoutAdmin />}>
                 <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/ordenes" element={<AdminOrdenes />} />
                 <Route path="/admin/productos" element={<AdminProductos />} />
                 <Route path="/admin/productos/nuevo" element={<AdminProductoForm />} />
                 <Route path="/admin/productos/:id/editar" element={<AdminProductoForm />} />
                 <Route path="/admin/categorias" element={<AdminCategorias />} />
                 <Route path="/admin/usuarios" element={<AdminUsuarios />} />
+                <Route path="/admin/reportes" element={<AdminReportes />} />
+                <Route path="/admin/perfil" element={<AdminPerfil />} />
             </Route>
         </Routes>
     );
